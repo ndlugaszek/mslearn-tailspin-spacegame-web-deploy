@@ -136,7 +136,7 @@ stages:
   - deployment: Deploy
     pool:
       vmImage: 'ubuntu-20.04'
-    environment: prod
+    environment: staging
     variables:
     - group: 'Release'
     strategy:
@@ -149,6 +149,6 @@ stages:
               displayName: 'Azure App Service Deploy: website'
               inputs:
                 azureSubscription: 'Resource Manager - Tailspin - Space Game'
-                appName: '$(WebAppNameStaging)'
+                appName: '$(WebAppNameProd)'
                 package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/*.zip'
                 appType: 'webAppLinux'
