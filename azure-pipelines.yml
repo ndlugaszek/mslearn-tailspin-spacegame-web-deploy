@@ -14,6 +14,11 @@ schedules:
   always: false
 
 stages:
+- stage: 'tools check'
+  displayName: 'Checking installed tools'
+  jobs:
+    - job: 'az cli'
+      
 - stage: 'Build'
   displayName: 'Build the web application'
   jobs: 
